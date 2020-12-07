@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateUlasanpelangganTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('ulasanpelanggan', function (Blueprint $table) {
+            $table->increments('id_ulasan');
+            $table->integer('id_transaksi');
+            $table->integer('id_pelangggan');
+            $table->date('tgl_ulasan');
+            $table->timestamps();
+            $table->string('isi_ulasan');
+            $table->integer('rating');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('ulasanpelanggan');
+    }
+}
